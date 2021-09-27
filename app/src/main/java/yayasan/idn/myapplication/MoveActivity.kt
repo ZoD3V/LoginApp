@@ -19,17 +19,4 @@ class MoveActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun menuMode(selectedMode:Int){
-        when(selectedMode){
-            R.id.logout -> {
-                val intent = Intent(this@MoveActivity,MainActivity::class.java)
-                startActivity(intent)
-            }
-        }
-    }
-
 }
