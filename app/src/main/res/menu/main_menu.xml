@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search_bar"
+        android:title="search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/Folder"
+        android:title="Folder"
+        android:icon="@drawable/ic_folder"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/Settings"
+        android:title="Settings">
+        <menu>
+            <group android:id="@+id/GroupSett">
+                <item android:id="@+id/Profile"
+                    android:title="profile"/>
+                <item android:id="@+id/logout"
+                    android:title="logout"/>
+            </group>
+        </menu>
+    </item>
+</menu>
