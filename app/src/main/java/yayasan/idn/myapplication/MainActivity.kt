@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+import yayasan.idn.myapplication.R.id.content
 
 class MainActivity : AppCompatActivity() {
     private lateinit var dataEmail:List<String>
@@ -19,17 +21,14 @@ class MainActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.edPassword)
         val btnLogin = findViewById<Button>(R.id.btn_Login)
 
-        dataEmail = listOf("adhi@gmail.com","joko@gmail.com","tono@gmail.com")
+        dataEmail = listOf("adhi@gmail.com","joko@gmail.com")
         dataPassword = listOf("1234","12345")
 
         btnLogin.setOnClickListener {
             if(login(username.text.toString(),password.text.toString())){
                 Toast.makeText(this, "Logging", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,MoveActivity::class.java)
-                startActivity(intent)
-            }else{
-                Toast.makeText(this,"Username or Password Wrong",Toast.LENGTH_LONG).show()
-            }
+                finish()
+            }else Toast.makeText(this,"Username or Password Wrong",Toast.LENGTH_LONG).show()
 
         }
 
@@ -38,11 +37,13 @@ class MainActivity : AppCompatActivity() {
     private fun login(email:String, password:String):Boolean{
         for(i in dataEmail.indices){
             if(email == dataEmail[i] && password == dataPassword[i]){
-                return true
+                startActivity(Intent(this,MoveActivity::class.java).apply {
+                    putExtra("email",dataEmail[i])
+                    finish()
+                })
             }
         }
         return false
     }
-
 
 }
